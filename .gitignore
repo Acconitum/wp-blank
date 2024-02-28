@@ -2,7 +2,7 @@
 wp-content/*
 wp-content/themes/*
 wp-content/plugins/*
-wp-content/themes/storefront-child/node_modules
+node_modules/*
 db/*
 *.sql
 .htaccess
@@ -29,7 +29,8 @@ xmlrpc.php
 
 
 # Exceptions here either plugin or theme
+
 !wp-content/themes/
-!wp-content/themes/storefront-child/
-!wp-content/plugins/
-!wp-content/plugins/VerforaContentservConnector
+!wp-content/themes/##replace##/
+# !wp-content/plugins/
+# !wp-content/plugins/if-a-plugin-is-developed

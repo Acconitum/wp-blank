@@ -1,0 +1,15 @@
+{
+    "name": "##replace##",
+    "version": "1.0.0",
+    "description": "##description##",
+    "scripts": {
+      "css": "node-sass --output-style compressed -o wp-content/themes/##replace##/dist/ wp-content/themes/##replace##/assets/scss/app.scss",
+      "js": "uglifyjs wp-content/themes/##replace##/assets/js/*.js -o wp-content/themes/##replace##/dist/app.min.js",
+      "build": "npm run build-css && npm run build-js"
+    },
+    "dependencies": {
+      "node-sass": "^9.0.0",
+      "uglify-js": "^3.17.4"
+    }
+  }
+  
