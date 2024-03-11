@@ -23,6 +23,7 @@ services:
       - ./wp-content:/var/www/html/wp-content
       - ./wp-admin:/var/www/html/wp-admin
       - ./wp-includes:/var/www/html/wp-includes
+      - ./vendor:/var/www/html/vendor
     ports:
       - 80:80
     restart: no
