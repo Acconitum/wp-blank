@@ -1,13 +1,9 @@
 <?php
 
-var_dump(ABSPATH . 'vendor/autoload.php');
-
-var_dump(__DIR__);
-
-if (file_exists(ABSPATH . 'vendor/autoload.php')) {
-
-} else {
+if (!file_exists(ABSPATH . 'vendor/autoload.php')) {
     die('"composer install" has not been called!');
 }
+
+require ABSPATH . 'vendor/autoload.php';
 
 Staempfli\Theme::addActions();
