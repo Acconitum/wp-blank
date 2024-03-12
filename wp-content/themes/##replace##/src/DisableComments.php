@@ -2,7 +2,10 @@
 
 namespace Staempfli;
 
-class Comments
+/**
+ * All needed functionality to remove comments from WordPress completly
+ */
+class DisableComments
 {
 
     /**
@@ -22,6 +25,12 @@ class Comments
         add_filter('pings_open', '__return_false', 20, 2);
     }
 
+    /**
+     * Remove posttype support for every posttype
+     * Redirect if optionpage is accessed directly
+     *
+     * @return void
+     */
     public static function removeComments()
     {
         $types = get_post_types();
@@ -41,12 +50,22 @@ class Comments
         }
     }
 
+    /**
+     * Remove comment related menu entries from backend
+     *
+     * @return void
+     */
     public static function removeCommentsMenu()
     {
         remove_menu_page('edit-comments.php');
         remove_submenu_page( 'options-general.php', 'options-discussion.php' );
     }
 
+    /**
+     * Remove comment from admin bar
+     *
+     * @return void
+     */
     public static function removeCommentsMenuInAdminBar()
     {
         if (is_admin_bar_showing()) {

@@ -23,7 +23,7 @@ class Theme
         add_action('init', __CLASS__ . '::removeBackendEditor');
 
 
-        Comments::addActions(); // Comment out if you like to enable comments
+        DisableComments::addActions(); // Comment out if you like to enable comments
     }
 
     public static function addThemeSupport()
@@ -36,7 +36,7 @@ class Theme
     public static function addWidgets()
     {
         register_sidebar(
-            ['name'             => esc_html__( 'Sidebar', 'test' ),
+            [   'name'          => esc_html__( 'Sidebar', 'test' ),
                 'id'            => 'sidebar-1',
                 'description'   => esc_html__( 'Add widgets here.', 'test' ),
                 'before_widget' => '<section id="%1$s" class="widget %2$s">',
