@@ -80,7 +80,7 @@ class Theme
     public static function addStyleSheet()
     {
         $theme = wp_get_theme();
-        wp_enqueue_style('style', get_stylesheet_directory_uri() . '/dist/app.css', [], $theme->get('Version'));
+        wp_enqueue_style('style', get_stylesheet_directory_uri() . '/assets/dist/app.css', [], $theme->get('Version'));
     }
 
     /**
