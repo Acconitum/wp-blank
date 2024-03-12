@@ -7,7 +7,6 @@ namespace Staempfli;
  */
 class DisableComments
 {
-
     /**
      * Add actions and hooks to WordPress core to remove comments completly
      * 

@@ -24,8 +24,14 @@ class Theme
 
 
         DisableComments::addActions(); // Comment out if you like to enable comments
+        DisableGutenberg::addActions(); // Comment out if you like to use the gutenber editor
     }
 
+    /**
+     * Add themesupports
+     *
+     * @return void
+     */
     public static function addThemeSupport()
     {
 	    add_theme_support('title-tag');
@@ -33,6 +39,11 @@ class Theme
         add_theme_support('customize-selective-refresh-widgets');
     }
 
+    /**
+     * Add Sidebar widget
+     *
+     * @return void
+     */
     public static function addWidgets()
     {
         register_sidebar(
@@ -47,6 +58,12 @@ class Theme
         );
     }
 
+    /**
+     * Remove plugin and theme editor from within 
+     * the backend
+     *
+     * @return void
+     */
     public static function removeBackendEditor()
     {
         if (!defined('DISALLOW_FILE_EDIT')) {
