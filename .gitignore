@@ -7,7 +7,7 @@ node_modules/*
 db/*
 *.sql
 .htaccess
-index.php
+./index.php
 license.txt
 readme.html
 liesmich.html

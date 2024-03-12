@@ -1,0 +1,44 @@
+// @font-face {
+//     font-family: "Asap";
+//     src: url("/wp-content/themes/storefront-child/assets/fonts/Asap-VariableFont.ttf") format("truetype");
+// }
+
+body,
+button,
+input,
+textarea {
+    font-family: Asap, sans-serif;
+}
+
+h1,
+h2,
+h4 {
+    font-weight: 700;
+    color: $primary;
+    &:before {
+        color: $secondary;
+    }
+}
+
+h1 {
+    font-size: 56px;
+    line-height: 64px;
+}
+
+h2 {
+    font-size: 36px;
+    letter-spacing: .2px;
+    line-height: 48px;
+}
+
+h3 {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 32px;
+    color: $black;
+}
+
+h4 {
+    font-size: 20px;
+    line-height: 24px;
+}

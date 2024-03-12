@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    line-height: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    scroll-behavior: smooth;
+}
+
+#page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-bar #page {
+    min-height: calc(100vh - 33px);
+}
+
+footer {
+    margin-top: auto;
+}
+
+ul,ol {
+    padding-left: 15px;
+}
+
+p {
+    margin-bottom: 10px;
+}
+
+p:last-child {
+    margin-bottom: 0;
+}
+
+h1, h2 {
+    margin-bottom: 50px;
+    line-height: 1.2;
+}
+
+h3,h4,h5,h6 {
+    margin-bottom: 30px;
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 60px;
+}
+
+h2 {
+    font-size: 40px;
+}
+
+h3 {
+    font-size: 30px;
+}
+
+h4 {
+    font-size: 20px;
+}
+
+h5 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+h6 {
+    font-size: 20px;
+    font-style: italic;
+}
+
+@media (max-width: 767px) {
+    h1 {
+        font-size: 40px;
+    }
+    
+    h2 {
+        font-size: 30px;
+    }
+    
+    h3 {
+        font-size: 24px;
+    }
+    
+    h4 {
+        font-size: 20px;
+    }
+    
+    h5 {
+        font-size: 20px;
+        font-weight: bold;
+    }
+    
+    h6 {
+        font-size: 20px;
+        font-style: italic;
+    }
+}
+
+img {
+    max-width: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+.section {
+    padding: 40px 0;
+}
+
+.partial {
+    padding: 30px 0;
+}
+
+.partial:first-of-type {
+    padding-top: 0;
+}
+
+.lead {
+    font-size: 18px;
+    line-height: 22px;
+}
+
+.container {
+    width: 750px;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section {
+    padding: 50px 0;
+}
