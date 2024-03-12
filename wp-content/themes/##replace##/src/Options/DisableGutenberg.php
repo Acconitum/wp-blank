@@ -1,6 +1,6 @@
 <?php
 
-namespace Staempfli;
+namespace Staempfli\Options;
 
 /**
  * All needed functionality to remove gutenberg editor from WordPress completly
@@ -11,9 +11,6 @@ class DisableGutenberg
 {
     /**
      * Add actions and hooks to WordPress core
-     * 
-     * @static
-     * @return void
      */
     public static function addActions()
     {
@@ -25,8 +22,6 @@ class DisableGutenberg
 
     /**
      * Remove stylesheets for gutenberg
-     *
-     * @return void
      */
     public static function removeStyles()
     {

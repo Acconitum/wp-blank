@@ -2,18 +2,35 @@
 
 namespace Staempfli;
 
+use Staempfli\Options\DisableComments;
+use Staempfli\Options\DisableGutenberg;
+use Staempfli\Posttypes\AbstractPosttype;
+
 class Theme
 {
+    /**
+     * The theme text domain
+     */
     const TEXT_DOMAIN = '##replace##';
+
+    /**
+     * Custom Posttype classes which extends AbstractPosttype
+     * 
+     * Example:
+     * Staempfli\Posttypes\CustomPosttype
+     */
+    const POST_TYPES = [];
+
+    /**
+     * Holder for registered posttype for easy access over Theme::getPosttype('name')
+     */
+    static $RegisteredPosttypes = [];
 
     /**
      * Add actions and hooks to WordPress core
      * 
      * Initialize additional functionality and their
      * actions and hooks
-     *
-     * @static
-     * @return void
      */
     public static function addActions()
     {
@@ -21,6 +38,7 @@ class Theme
         add_action('after_setup_theme', __CLASS__ . '::addThemeSupport');
         add_action('widgets_init', __CLASS__ . '::addWidgets');
         add_action('init', __CLASS__ . '::removeBackendEditor');
+        add_action('init', __CLASS__ . '::registerPosttypes');
 
 
         DisableComments::addActions(); // Comment out if you like to enable comments
@@ -28,9 +46,32 @@ class Theme
     }
 
     /**
-     * Add themesupports
+     * Registers all custom posttypes from POST_TYPES constant
+     * and insert them into the static $RegisteredPosttypes array
+     */
+    public static function registerPosttypes()
+    {
+        foreach(self::POST_TYPES as $posttypeClass) {
+
+            $posttype = new $posttypeClass();
+            $posttype->register();
+            self::$RegisteredPosttypes[$posttype->getPosttype()] = $posttype;
+        }
+    }
+
+    /**
+     * Get registered posttype
      *
-     * @return void
+     * @param string $name posttype name
+     * @return AbstractPosttype|bool
+     */
+    public static function getPosttype($name)
+    {
+        return self::$RegisteredPosttypes[$name] ?? false;
+    }
+
+    /**
+     * Add themesupports
      */
     public static function addThemeSupport()
     {
@@ -41,8 +82,6 @@ class Theme
 
     /**
      * Add Sidebar widget
-     *
-     * @return void
      */
     public static function addWidgets()
     {
@@ -61,8 +100,6 @@ class Theme
     /**
      * Remove plugin and theme editor from within 
      * the backend
-     *
-     * @return void
      */
     public static function removeBackendEditor()
     {
@@ -72,10 +109,7 @@ class Theme
     }
 
     /**
-     * Add stylesheets from parent theme and child-theme
-     *
-     * @static
-     * @return void
+     * Add stylesheets
      */
     public static function addStyleSheet()
     {
@@ -91,7 +125,6 @@ class Theme
      *
      * @param string $name
      * @param array $args
-     * @return void
      */
     public static function includeTemplate($name, $args = [])
     {

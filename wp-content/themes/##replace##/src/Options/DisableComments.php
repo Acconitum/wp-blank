@@ -1,6 +1,6 @@
 <?php
 
-namespace Staempfli;
+namespace Staempfli\Options;
 
 /**
  * All needed functionality to remove comments from WordPress completly
@@ -9,9 +9,6 @@ class DisableComments
 {
     /**
      * Add actions and hooks to WordPress core to remove comments completly
-     * 
-     * @static
-     * @return void
      */
     public static function addActions()
     {
@@ -27,8 +24,6 @@ class DisableComments
     /**
      * Remove posttype support for every posttype
      * Redirect if optionpage is accessed directly
-     *
-     * @return void
      */
     public static function removeComments()
     {
@@ -51,8 +46,6 @@ class DisableComments
 
     /**
      * Remove comment related menu entries from backend
-     *
-     * @return void
      */
     public static function removeCommentsMenu()
     {
@@ -62,8 +55,6 @@ class DisableComments
 
     /**
      * Remove comment from admin bar
-     *
-     * @return void
      */
     public static function removeCommentsMenuInAdminBar()
     {
