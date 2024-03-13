@@ -15,6 +15,11 @@ class Theme
      */
     const TEXT_DOMAIN = '##replace##';
 
+    const OPTIONS = [
+        DisableComments::class,
+        DisableGutenberg::class,
+    ];
+
     /**
      * Custom Posttype classes which extends AbstractPosttype
      * 
@@ -60,9 +65,17 @@ class Theme
         add_action('init', __CLASS__ . '::registerPosttypes');
         add_action('init', __CLASS__ . '::registerTaxonomies');
 
+        self::handleOptions();
+    }
 
-        DisableComments::addActions(); // Comment out if you like to enable comments
-        DisableGutenberg::addActions(); // Comment out if you like to use the gutenber editor
+    /**
+     * Handles Option classes
+     */
+    public static function handleOptions()
+    {
+        foreach(self::OPTIONS as $optionClass) {
+            $optionClass::addActions();
+        }
     }
 
     /**
@@ -123,6 +136,18 @@ class Theme
 	    add_theme_support('title-tag');
         add_theme_support('post-thumbnails');
         add_theme_support('customize-selective-refresh-widgets');
+        add_theme_support(
+            'html5',
+            [
+                'search-form',
+                'comment-form',
+                'comment-list',
+                'gallery',
+                'caption',
+                'style',
+                'script',
+            ]
+        );
     }
 
     /**
