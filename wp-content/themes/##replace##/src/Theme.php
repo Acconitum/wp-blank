@@ -6,6 +6,7 @@ use Staempfli\Options\DisableComments;
 use Staempfli\Options\DisableGutenberg;
 use Staempfli\Posttypes\AbstractPosttype;
 use Staempfli\Posttypes\CustomPosttype;
+use Staempfli\Taxonomies\AbstractTaxonomy;
 use Staempfli\Taxonomies\CustomTaxonomy;
 
 class Theme
@@ -246,5 +247,30 @@ class Theme
             ${$key} = $value;
         }
         include get_stylesheet_directory() . '/views/' . $name . '.php';
+    }
+
+    /**
+     * Debug function
+     *
+     * @param mixed $var
+     */
+    public static function dd(...$vars)
+    {
+        echo '<pre>';
+        var_dump(...$vars);
+        echo '</pre>';
+        die();
+    }
+
+    /**
+     * Debug function
+     *
+     * @param mixed $vars
+     */
+    public static function dump(...$vars)
+    {
+        echo '<pre>';
+        var_dump(...$vars);
+        echo '</pre>';
     }
 }

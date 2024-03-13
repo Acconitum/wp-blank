@@ -15,6 +15,7 @@ replace_file composer.json;
 replace_file package.json;
 replace_file package-lock.json;
 replace_file webpack.config.js;
+replace_file .gitignore;
 replace_file wp-content/themes/##replace##/src/Theme.php;
 replace_file wp-content/themes/##replace##/style.css;
 

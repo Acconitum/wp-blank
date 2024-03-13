@@ -63,7 +63,7 @@ class CustomTaxonomy extends AbstractTaxonomy
     /**
      * Get the posttypes associated with the taxonomy
      *
-     * @return string
+     * @return array
      */
     public function getPosttypes()
     {
