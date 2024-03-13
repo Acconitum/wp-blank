@@ -59,6 +59,7 @@ class Theme
     public static function addActions()
     {
         add_action('wp_enqueue_scripts', __CLASS__ . '::addStyleSheet');
+        add_action('wp_enqueue_scripts', __CLASS__ . '::addScripts');
         add_action('after_setup_theme', __CLASS__ . '::addThemeSupport');
         add_action('widgets_init', __CLASS__ . '::addWidgets');
         add_action('init', __CLASS__ . '::removeBackendEditor');
@@ -185,6 +186,15 @@ class Theme
     {
         $theme = wp_get_theme();
         wp_enqueue_style('style', get_stylesheet_directory_uri() . '/assets/dist/app.css', [], $theme->get('Version'));
+    }
+
+    /**
+     * Add scripts
+     */
+    public static function addScripts()
+    {
+        $theme = wp_get_theme();
+        wp_enqueue_script( 'scripts', get_stylesheet_directory_uri() . '/assets/dist/app.min.js', [], []);
     }
 
     /**
