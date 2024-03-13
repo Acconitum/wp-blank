@@ -1,5 +1,7 @@
-	<footer class="site-footer">
-		footer
+	<footer class="site-footer section">
+		<div class="container">
+			footer
+		</div>
 	</footer>
 </div>
 

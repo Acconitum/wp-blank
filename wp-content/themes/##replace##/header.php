@@ -27,14 +27,16 @@ use Staempfli\Theme;
 <div id="page" class="site">
 
 	<nav id="site-navigation" class="main-navigation container">
-		<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', Theme::TEXT_DOMAIN ); ?></button>
-		<?php
-			wp_nav_menu([
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				]
-			);
-		?>
+		<div class="container">
+			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', Theme::TEXT_DOMAIN ); ?></button>
+			<?php
+				wp_nav_menu([
+						'theme_location' => 'menu-1',
+						'menu_id'        => 'primary-menu',
+					]
+				);
+			?>
+		</div>
 	</nav>
 
 	<header id="masthead" class="site-header section">
