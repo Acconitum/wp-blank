@@ -20,5 +20,13 @@ replace_file wp-content/themes/##replace##/style.css;
 
 mv wp-content/themes/##replace## wp-content/themes/$project;
 
+composer install
+npm install
+
 rm -rf .git
+rm setup.sh
 git init
+git add --all
+git commit -am "[INIT] Initial commit"
+
+echo "Setup for $project finished! Now run "docker compose up" to biuld a wordpress site!"
