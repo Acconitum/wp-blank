@@ -194,7 +194,7 @@ class Theme
     public static function addScripts()
     {
         $theme = wp_get_theme();
-        wp_enqueue_script( 'scripts', get_stylesheet_directory_uri() . '/assets/dist/app.min.js', [], []);
+        wp_enqueue_script( 'scripts', get_stylesheet_directory_uri() . '/assets/dist/app.min.js', [], $theme->get('Version'), true);
     }
 
     /**

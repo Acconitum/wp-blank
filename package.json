@@ -3,13 +3,16 @@
     "version": "1.0.0",
     "description": "##description##",
     "scripts": {
-      "css": "node-sass --output-style compressed -o wp-content/themes/##replace##/assets/dist/ wp-content/themes/##replace##/assets/scss/app.scss",
-      "js": "uglifyjs wp-content/themes/##replace##/assets/js/*.js -o wp-content/themes/##replace##/assets/dist/app.min.js",
-      "build": "npm run build-css && npm run build-js"
+        "css": "node-sass --output-style compressed -o wp-content/themes/##replace##/assets/dist/ wp-content/themes/##replace##/assets/scss/app.scss",
+        "js": "webpack --mode production",
+        "build": "npm run build-css && npm run build-js"
     },
     "dependencies": {
-      "node-sass": "^9.0.0",
-      "uglify-js": "^3.17.4"
+        "node-sass": "^9.0.0"
+    },
+    "devDependencies": {
+        "terser-webpack-plugin": "^5.3.10",
+        "webpack": "^5.90.3",
+        "webpack-cli": "^5.1.4"
     }
-  }
-  
+}

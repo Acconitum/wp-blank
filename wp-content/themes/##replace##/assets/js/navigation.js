@@ -3,13 +3,10 @@
  * navigation support for dropdown menus.
  */
 ( function() {
-	const siteNavigation = document.getElementById( 'site-navigation' );
-
-    console.log(siteNavigation);
+	const siteNavigation = document.querySelector( '#site-navigation' );
     
 	// Return early if the navigation doesn't exist.
 	if ( ! siteNavigation ) {
-        alert('0');
 		return;
 	}
 
