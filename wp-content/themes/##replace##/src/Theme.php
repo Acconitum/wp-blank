@@ -6,6 +6,7 @@ use Staempfli\Options\DisableComments;
 use Staempfli\Options\DisableGutenberg;
 use Staempfli\Posttypes\AbstractPosttype;
 use Staempfli\Posttypes\CustomPosttype;
+use Staempfli\Taxonomies\CustomTaxonomy;
 
 class Theme
 {
@@ -20,14 +21,29 @@ class Theme
      * Example:
      * Staempfli\Posttypes\CustomPosttype
      */
-    const POST_TYPES = [
+    const POSTTYPES = [
         CustomPosttype::class
+    ];
+
+    /**
+     * Custom taxonomy classes which extends AbstractTaxonomy
+     * 
+     * Example:
+     * Staempfli\Taxonomies\CustomTaxonomy
+     */
+    const TAXONOMIES = [
+        CustomTaxonomy::class
     ];
 
     /**
      * Holder for registered posttype for easy access over Theme::getPosttype('name')
      */
     static $RegisteredPosttypes = [];
+
+    /**
+     * Holder for registered taxonomies for easy access over Theme::getTaxonomy('name')
+     */
+    static $RegisteredTaxonomies = [];
 
     /**
      * Add actions and hooks to WordPress core
@@ -42,6 +58,7 @@ class Theme
         add_action('widgets_init', __CLASS__ . '::addWidgets');
         add_action('init', __CLASS__ . '::removeBackendEditor');
         add_action('init', __CLASS__ . '::registerPosttypes');
+        add_action('init', __CLASS__ . '::registerTaxonomies');
 
 
         DisableComments::addActions(); // Comment out if you like to enable comments
@@ -49,12 +66,12 @@ class Theme
     }
 
     /**
-     * Registers all custom posttypes from POST_TYPES constant
+     * Registers all custom posttypes from POSTTYPES constant
      * and insert them into the static $RegisteredPosttypes array
      */
     public static function registerPosttypes()
     {
-        foreach(self::POST_TYPES as $posttypeClass) {
+        foreach(self::POSTTYPES as $posttypeClass) {
 
             $posttype = new $posttypeClass();
             $posttype->register();
@@ -71,6 +88,31 @@ class Theme
     public static function getPosttype($name)
     {
         return self::$RegisteredPosttypes[$name] ?? false;
+    }
+
+    /**
+     * Registers all custom taxonomies from POST_TAXONOMIES constant
+     * and insert them into the static $RegisteredTaxonomies array
+     */
+    public static function registerTaxonomies()
+    {
+        foreach(self::TAXONOMIES as $taxonomyClass) {
+
+            $taxonomy = new $taxonomyClass();
+            $taxonomy->register();
+            self::$RegisteredTaxonomies[$taxonomy->getTaxonomy()] = $taxonomy;
+        }
+    }
+
+    /**
+     * Get registered taxonomy
+     *
+     * @param string $name taxonomy name
+     * @return AbstractTaxonomy|bool
+     */
+    public static function getTaxonomy($name)
+    {
+        return self::$RegisteredTaxonomies[$name] ?? false;
     }
 
     /**

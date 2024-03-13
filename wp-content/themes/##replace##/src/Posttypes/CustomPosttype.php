@@ -9,6 +9,8 @@ use Staempfli\Theme;
  * 
  * If you like to use it, remname it and adapt the labels
  * as you need.
+ * 
+ * Don't forget to add the class to Theme::POSTTYPES
  */
 class CustomPosttype extends AbstractPosttype
 {
@@ -48,7 +50,6 @@ class CustomPosttype extends AbstractPosttype
         return [
             'description'         => 'Cutsom posttype', // Description
             'supports'            => ['title', 'editor', 'author', 'thumbnail', 'excerpt'],
-            'taxonomies'          => [], // Allowed taxonomies
             'hierarchical'        => false,         // Allows hierarchical categorization, if set to false, the Custom Post Type will behave like Post, else it will behave like Page
             'public'              => true,          // Makes the post type public
             'show_ui'             => true,          // Displays an interface for this post type
@@ -61,7 +62,7 @@ class CustomPosttype extends AbstractPosttype
             'has_archive'         => true,          // Enables post type archive (by month, date, or year)
             'exclude_from_search' => false,         // Excludes posts of this type in the front-end search result page if set to true, include them if set to false
             'publicly_queryable'  => true,          // Allows queries to be performed on the front-end part if set to true
-            'rewrite'             => true,          // Allows override for example the slug
+            'rewrite'             => ['slug' => 'custom-posttpye'], // Allows override for example the slug
             'capability_type'     => 'post',        // Allows read, edit, delete like “Post”
             'map_meta_cap'        => true,          // Needed for capability_type to work
         ];
