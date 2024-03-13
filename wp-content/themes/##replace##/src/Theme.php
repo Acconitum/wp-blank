@@ -61,7 +61,7 @@ class Theme
         add_action('wp_enqueue_scripts', __CLASS__ . '::addStyleSheet');
         add_action('wp_enqueue_scripts', __CLASS__ . '::addScripts');
         add_action('after_setup_theme', __CLASS__ . '::addThemeSupport');
-        add_action('widgets_init', __CLASS__ . '::addWidgets');
+        add_action('widgets_init', __CLASS__ . '::addFooterWidgets');
         add_action('init', __CLASS__ . '::removeBackendEditor');
         add_action('init', __CLASS__ . '::registerPosttypes');
         add_action('init', __CLASS__ . '::registerTaxonomies');
@@ -152,18 +152,52 @@ class Theme
     }
 
     /**
-     * Add Sidebar widget
+     * Add footer widgets
      */
-    public static function addWidgets()
+    public static function addFooterWidgets()
     {
         register_sidebar(
-            [   'name'          => esc_html__( 'Sidebar', 'test' ),
-                'id'            => 'sidebar-1',
-                'description'   => esc_html__( 'Add widgets here.', 'test' ),
-                'before_widget' => '<section id="%1$s" class="widget %2$s">',
-                'after_widget'  => '</section>',
-                'before_title'  => '<h2 class="widget-title">',
-                'after_title'   => '</h2>',
+            [   
+                'name'          => esc_html__( 'Footer Column 1', self::TEXT_DOMAIN),
+                'id'            => 'footer-1',
+                'description'   => esc_html__( 'Add widgets here.', self::TEXT_DOMAIN),
+                'before_widget' => '<div id="%1$s" class="widget %2$s">',
+                'after_widget'  => '</div>',
+                'before_title'  => '<h4 class="widget-title">',
+                'after_title'   => '</h4>',
+            ]
+        );
+        register_sidebar(
+            [   
+                'name'          => esc_html__( 'Footer Column 2', self::TEXT_DOMAIN),
+                'id'            => 'footer-2',
+                'description'   => esc_html__( 'Add widgets here.', self::TEXT_DOMAIN),
+                'before_widget' => '<div id="%1$s" class="widget %2$s">',
+                'after_widget'  => '</div>',
+                'before_title'  => '<h4 class="widget-title">',
+                'after_title'   => '</h4>',
+            ]
+        );
+        register_sidebar(
+            [   
+                'name'          => esc_html__( 'Footer Column 3', self::TEXT_DOMAIN),
+                'id'            => 'footer-3',
+                'description'   => esc_html__( 'Add widgets here.', self::TEXT_DOMAIN),
+                'before_widget' => '<div id="%1$s" class="widget %2$s">',
+                'after_widget'  => '</div>',
+                'before_title'  => '<h4 class="widget-title">',
+                'after_title'   => '</h4>',
+            ]
+        );
+        register_sidebar(
+            [   
+                'name'          => esc_html__( 'Footer Column 4', self::TEXT_DOMAIN),
+                'id'            => 'footer-4',
+                'description'   => esc_html__( 'Add widgets here.', self::TEXT_DOMAIN),
+                'before_widget' => '<div id="%1$s" class="widget %2$s">',
+                'after_widget'  => '</div>',
+                'before_title'  => '<h4 class="widget-title">',
+                'after_title'   => '</h4>',
             ]
         );
     }

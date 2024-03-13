@@ -1,0 +1,32 @@
+.site-footer {
+    
+    .footer-part-wrap {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -15px;
+        row-gap: 30px;
+    }
+
+    .widget {
+        margin-bottom: 30px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    .footer-part {
+        padding: 0 15px;
+        flex-basis: 25%;
+        @media (max-width: 767px) {
+            flex-basis: 50%;
+        }
+        @media (max-width: 480px) {
+            flex-basis: 100%;
+        }
+    }
+
+    .footer-copyright {
+        padding-top: 30px;
+        text-align: center;
+    }
+}
