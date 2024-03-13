@@ -13,6 +13,8 @@
  */
 
 get_header();
+
+var_dump(get_post_type_capabilities('custom_posttype'));
 ?>
 
 	<main id="primary" class="site-main">

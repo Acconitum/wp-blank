@@ -6,8 +6,6 @@ use Staempfli\Theme;
 
 abstract class AbstractPosttype
 {
-    const POST_TYPE = 'post';
-
     /**
      * Get the labels for registering a posttype
      */

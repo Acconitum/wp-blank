@@ -5,6 +5,7 @@ namespace Staempfli;
 use Staempfli\Options\DisableComments;
 use Staempfli\Options\DisableGutenberg;
 use Staempfli\Posttypes\AbstractPosttype;
+use Staempfli\Posttypes\CustomPosttype;
 
 class Theme
 {
@@ -19,7 +20,9 @@ class Theme
      * Example:
      * Staempfli\Posttypes\CustomPosttype
      */
-    const POST_TYPES = [];
+    const POST_TYPES = [
+        CustomPosttype::class
+    ];
 
     /**
      * Holder for registered posttype for easy access over Theme::getPosttype('name')
