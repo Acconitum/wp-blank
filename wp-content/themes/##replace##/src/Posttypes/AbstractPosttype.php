@@ -30,6 +30,7 @@ abstract class AbstractPosttype
      */
     public function register()
     {
+        $args = $this->getArgs();
         $args['labels'] = $this->getLabels();
         register_post_type($this->getPosttype(), $args);
     }

@@ -56,7 +56,7 @@ class CustomPosttype extends AbstractPosttype
             'show_in_nav_menus'   => true,          // Displays in Appearance -> Menus
             'show_in_admin_bar'   => false,         // Displays in the black admin bar
             'menu_position'       => 5,             // The position number in the left menu
-            'menu_icon'           => 'carrot',      // The URL for the icon used for this post type
+            'menu_icon'           => 'dashicons-carrot', // The URL for the icon used for this post type
             'can_export'          => true,          // Allows content export using Tools -> Export
             'has_archive'         => true,          // Enables post type archive (by month, date, or year)
             'exclude_from_search' => false,         // Excludes posts of this type in the front-end search result page if set to true, include them if set to false
