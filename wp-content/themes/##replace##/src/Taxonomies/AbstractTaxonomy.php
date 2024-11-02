@@ -116,9 +116,20 @@ abstract class AbstractTaxonomy
      */
     public function getAll()
     {
-        return get_terms([
+        $baseTerms = get_terms([
             'taxonomy' => $this->getTaxonomy(),
             'hide_empty' => false 
         ]);
+
+        if (function_exists('pll_get_term')) {
+            $terms = [];
+            foreach($baseTerms as $term) {
+                $termId = pll_get_term($term->term_id);
+                $terms[] = get_term($termId);
+            }
+        } else {
+            $terms = $baseTerms;
+        }
+        return $terms;
     }
 }

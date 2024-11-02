@@ -250,6 +250,35 @@ class Theme
     }
 
     /**
+     * Method to get a large number of posts without risk
+     * of memory exception
+     *
+     * @param string $posttype
+     * @param int $perPage
+     * @param string $status
+     * @return array
+     */
+    public static function getAllPostsLazy($posttype = 'post', $perPage = 10, $status = 'publish', $additionalArgs = [])
+    {
+        $page = 1;
+        while(true) {
+            $args = [
+                'post_type' => $posttype,
+                'post_status'    => $status,
+                'posts_per_page' => $perPage,
+                'paged' => $page
+            ];
+            $args = array_merge($args, $additionalArgs);
+            $query = new \WP_Query($args);
+            if (!$query->have_posts()) {
+                return [];
+            }
+            $page++;
+            yield $query->posts;
+        }
+    }
+
+    /**
      * Debug function
      *
      * @param mixed $var

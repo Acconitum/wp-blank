@@ -14,7 +14,7 @@
 					<?php dynamic_sidebar('footer-4'); ?>
 				</div>
 			</div>
-			<div class="footer-copyright">&copy; <?php echo get_option('ownder', 'Stämpfli Kommunikation'); ?> <?php echo date('Y'); ?></div>
+			<div class="footer-copyright">&copy; <?php echo (function_exists('get_field') && !empty(get_field('owner', 'options')) ? get_field('owner', 'options') : 'Stämpfli Kommunikation'); ?> <?php echo date('Y'); ?></div>
 		</div>
 	</footer>
 </div>
